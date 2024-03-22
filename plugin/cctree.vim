@@ -3434,12 +3434,20 @@ function! s:CCTreeGlobals.mLoadBufferFromKeyword()
     catch
         call s:CCTreeUtils.mWarningMsg('No buffer to load file')
     finally
-        if (cscope_connection() > 0)
+        if ( exists("cscope_connection") && cscope_connection() > 0)
             try
                 exec "cs find g ". hiKeyword
             catch
                 " cheap hack
                 exec "cs find f ". hiKeyword
+            endtry
+        elseif ( exists("g:Cscope_connection") && g:Cscope_connection() > 0)
+            " it's for nvim cscope_map api
+            try
+                exec "Cs find g ". hiKeyword
+            catch
+                " cheap hack
+                exec "Cs find f ". hiKeyword
             endtry
         else
             try

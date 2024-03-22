@@ -1,6 +1,8 @@
 ## About
 
 This is a fork of http://www.vim.org/scripts/script.php?script_id=2368
+Since NVIM drop the support of cscope, so you could use my own fork of cscope_map, this will bring cctree work again.
+https://github.com/breeze101792/cscope_maps.nvim
 
 ## Description:
 Plugin generates symbol dependency tree (aka call tree, call graph) in real-time inside Vim. Basic support for functions and macros; global variables, enums, typedefs can be cross-reference with additional processing. Functionality similar to that of tools and IDE's like CBrowser, Kscope, Source navigator, Eclipse, Source Insight. [Project details/Screenshots](http://sites.google.com/site/vimcctree/). Requires cscope to generate a cscope database; the complementary utility ccglue can be used to convert cscope databases to native cctree databases for instant loading.
